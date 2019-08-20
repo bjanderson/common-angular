@@ -1,0 +1,64 @@
+{
+  "name": "@lernato/common-angular",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "JavaScript utilities for writing code the @lernato way.",
+  "author": "Lernato, LLC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LernatoLLC/common-angular.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc && npm run fix-ts-paths",
+    "fix-ts-paths": "node scripts/fix-ts-paths.js",
+    "doc": "typedoc --out ../docs/utils src/**/*.ts",
+    "lint": "tslint --project tsconfig.json 'src/**/*.ts'",
+    "prepush": "npm run build",
+    "push": "npm publish --access public",
+    "push:major": "npm version major --no-git-tag-version && npm run push",
+    "push:minor": "npm version minor --no-git-tag-version && npm run push",
+    "push:patch": "npm version patch --no-git-tag-version && npm run push",
+    "test": "jest --coverage",
+    "test:watch": "jest --clearCache && jest --coverage --watch"
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.1.0",
+    "@angular/core": "^8.1.0",
+    "@angular/platform-browser": "^8.1.0",
+    "@angular/router": "^8.1.0",
+    "@lernato/common": "^2.0.0",
+    "@ngrx/effects": "^8.1.0",
+    "@ngrx/router-store": "^8.1.0",
+    "@ngrx/store": "^8.1.0"
+  },
+  "devDependencies": {
+    "@angular/common": "8.1.2",
+    "@angular/core": "8.1.2",
+    "@angular/platform-browser": "8.1.2",
+    "@angular/router": "8.1.2",
+    "@lernato/common": "2.0.1",
+    "@ngrx/effects": "8.1.0",
+    "@ngrx/router-store": "8.1.0",
+    "@ngrx/store": "8.1.0",
+    "@types/jest": "24.0.15",
+    "core-js": "2.6.5",
+    "jest": "24.8.0",
+    "rimraf": "2.6.3",
+    "rxjs": "6.5.2",
+    "ts-jest": "24.0.2",
+    "tslint": "5.18.0",
+    "typedoc": "0.14.2",
+    "typescript": "3.4.5",
+    "zone.js": "0.9.1"
+  },
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {}
+}
