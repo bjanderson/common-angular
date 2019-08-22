@@ -11,17 +11,7 @@
     "noImplicitAny": false,
     "outDir": "./dist",
     "target": "es5",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"]
   },
-  "exclude": [
-    "coverage",
-    "dist",
-    "doc",
-    "jest",
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["coverage", "dist", "doc", "jest", "node_modules", "**/*.spec.ts"]
 }

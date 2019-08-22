@@ -6,7 +6,7 @@ const http: any = {
   get: () => EMPTY,
   patch: () => EMPTY,
   post: () => EMPTY,
-  put: () => EMPTY
+  put: () => EMPTY,
 };
 
 let service;
@@ -94,13 +94,13 @@ describe('ApiService', () => {
     });
 
     it('returns response.json() if possible', () => {
-      const response = {a: 'a', json: () => 'test response'};
+      const response = { a: 'a', json: () => 'test response' };
       const test = service.mapResponse(response);
       expect(test).toEqual('test response');
     });
 
     it('returns the given response if response.json() fails', () => {
-      const response = {a: 'a', b: 'test response'};
+      const response = { a: 'a', b: 'test response' };
       const test = service.mapResponse(response);
       expect(test).toEqual(response);
     });

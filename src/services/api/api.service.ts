@@ -5,27 +5,25 @@ import { catchError, map } from 'rxjs/operators';
 import { httpOptions } from 'src/constants';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
 
   /**
    * Makes an HTTP DELETE call to the given url
    */
-  delete(url: string, options: any = httpOptions): Observable<any> {
+  public delete(url: string, options: any = httpOptions): Observable<any> {
     return this.http.delete(url, options).pipe(
       map(this.mapResponse.bind(this)),
-      catchError(this.mapError.bind(this)));
+      catchError(this.mapError.bind(this))
+    );
   }
 
   /**
    * Makes an HTTP GET call to the given url
    */
-  get(url: string, params?: any, options: any = httpOptions): Observable<any> {
+  public get(url: string, params?: any, options: any = httpOptions): Observable<any> {
     const requestOptions = Object.assign({}, options);
     const httpParams = new HttpParams();
 
@@ -39,34 +37,38 @@ export class ApiService {
 
     return this.http.get(url, requestOptions).pipe(
       map(this.mapResponse.bind(this)),
-      catchError(this.mapError.bind(this)));
+      catchError(this.mapError.bind(this))
+    );
   }
 
   /**
    * Makes an HTTP PATCH call to the given url
    */
-  patch(url: string, body: any, options: any = httpOptions): Observable<any> {
+  public patch(url: string, body: any, options: any = httpOptions): Observable<any> {
     return this.http.patch(url, body, options).pipe(
       map(this.mapResponse.bind(this)),
-      catchError(this.mapError.bind(this)));
+      catchError(this.mapError.bind(this))
+    );
   }
 
   /**
    * Makes an HTTP POST call to the given url
    */
-  post(url: string, body: any, options: any = httpOptions): Observable<any> {
+  public post(url: string, body: any, options: any = httpOptions): Observable<any> {
     return this.http.post(url, body, options).pipe(
       map(this.mapResponse.bind(this)),
-      catchError(this.mapError.bind(this)));
+      catchError(this.mapError.bind(this))
+    );
   }
 
   /**
    * Makes an HTTP PUT call to the given url
    */
-  put(url: string, body: any, options: any = httpOptions): Observable<any> {
+  public put(url: string, body: any, options: any = httpOptions): Observable<any> {
     return this.http.put(url, body, options).pipe(
       map(this.mapResponse.bind(this)),
-      catchError(this.mapError.bind(this)));
+      catchError(this.mapError.bind(this))
+    );
   }
 
   /**
