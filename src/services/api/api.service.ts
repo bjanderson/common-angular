@@ -14,10 +14,9 @@ export class ApiService {
    * Makes an HTTP DELETE call to the given url
    */
   public delete(url: string, options: any = httpOptions): Observable<any> {
-    return this.http.delete(url, options).pipe(
-      map(this.mapResponse.bind(this)),
-      catchError(this.mapError.bind(this))
-    );
+    return this.http
+      .delete(url, options)
+      .pipe(map(this.mapResponse.bind(this)), catchError(this.mapError.bind(this)));
   }
 
   /**
@@ -35,40 +34,36 @@ export class ApiService {
 
     requestOptions.params = httpParams;
 
-    return this.http.get(url, requestOptions).pipe(
-      map(this.mapResponse.bind(this)),
-      catchError(this.mapError.bind(this))
-    );
+    return this.http
+      .get(url, requestOptions)
+      .pipe(map(this.mapResponse.bind(this)), catchError(this.mapError.bind(this)));
   }
 
   /**
    * Makes an HTTP PATCH call to the given url
    */
   public patch(url: string, body: any, options: any = httpOptions): Observable<any> {
-    return this.http.patch(url, body, options).pipe(
-      map(this.mapResponse.bind(this)),
-      catchError(this.mapError.bind(this))
-    );
+    return this.http
+      .patch(url, body, options)
+      .pipe(map(this.mapResponse.bind(this)), catchError(this.mapError.bind(this)));
   }
 
   /**
    * Makes an HTTP POST call to the given url
    */
   public post(url: string, body: any, options: any = httpOptions): Observable<any> {
-    return this.http.post(url, body, options).pipe(
-      map(this.mapResponse.bind(this)),
-      catchError(this.mapError.bind(this))
-    );
+    return this.http
+      .post(url, body, options)
+      .pipe(map(this.mapResponse.bind(this)), catchError(this.mapError.bind(this)));
   }
 
   /**
    * Makes an HTTP PUT call to the given url
    */
   public put(url: string, body: any, options: any = httpOptions): Observable<any> {
-    return this.http.put(url, body, options).pipe(
-      map(this.mapResponse.bind(this)),
-      catchError(this.mapError.bind(this))
-    );
+    return this.http
+      .put(url, body, options)
+      .pipe(map(this.mapResponse.bind(this)), catchError(this.mapError.bind(this)));
   }
 
   /**
