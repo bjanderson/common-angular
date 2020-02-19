@@ -10,7 +10,7 @@ const http: any = {
 };
 
 let service;
-function init() {
+function init(): void {
   service = new ApiService(http);
 }
 

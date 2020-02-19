@@ -23,13 +23,13 @@ export class ApiService {
    * Makes an HTTP GET call to the given url
    */
   public get(url: string, params?: any, options: any = httpOptions): Observable<any> {
-    const requestOptions = Object.assign({}, options);
+    const requestOptions = { ...options };
     const httpParams = new HttpParams();
 
     if (params != null) {
-      for (const key of Object.keys(params)) {
+      Object.keys(params).forEach((key) => {
         httpParams.set(key, params[key]);
-      }
+      });
     }
 
     requestOptions.params = httpParams;

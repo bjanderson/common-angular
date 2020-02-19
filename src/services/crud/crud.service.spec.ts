@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import { getObject, getString } from '@lernato/common';
 import { EMPTY } from 'rxjs';
 import { ApiService } from '../api';
@@ -28,7 +29,7 @@ const apiService: any = {
 };
 
 let service: any;
-function init() {
+function init(): void {
   service = new TestService(apiService);
 }
 

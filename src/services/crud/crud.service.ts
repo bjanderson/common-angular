@@ -7,26 +7,26 @@ export abstract class CrudService<T> {
   constructor(
     private api: ApiService,
     private url: string,
-    private clazz: new (o?: Partial<T>) => T
+    private Clazz: new (o?: Partial<T>) => T
   ) {}
 
   public getAll(): Observable<T[]> {
     return this.api
       .get(this.url)
-      .pipe(map((response: any) => getArrayOfModels(this.clazz, response)));
+      .pipe(map((response: any) => getArrayOfModels(this.Clazz, response)));
   }
 
   public get(id: string): Observable<T> {
     const url = `${this.url}/${id}`;
-    return this.api.get(url).pipe(map((response: any) => new this.clazz(response)));
+    return this.api.get(url).pipe(map((response: any) => new this.Clazz(response)));
   }
 
   public create(item: T): Observable<T> {
-    return this.api.post(this.url, item).pipe(map((response: any) => new this.clazz(response)));
+    return this.api.post(this.url, item).pipe(map((response: any) => new this.Clazz(response)));
   }
 
   public update(item: T): Observable<T> {
-    return this.api.put(this.url, item).pipe(map((response: any) => new this.clazz(response)));
+    return this.api.put(this.url, item).pipe(map((response: any) => new this.Clazz(response)));
   }
 
   public delete(item: T): Observable<void> {
