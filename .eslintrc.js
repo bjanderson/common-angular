@@ -162,19 +162,13 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': [
       'warn',
       {
-        'allowExpressions': true,
-        'allowTypedFunctionExpressions': true
-      }
-    ],
-    '@typescript-eslint/explicit-member-accessibility': [
-      'warn',
-      {
-        accessibility: 'explicit',
-        overrides: { constructors: 'off' },
+        allowExpressions: true,
+        allowTypedFunctionExpressions: true,
       },
     ],
+    '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/indent': 'off',
-    '@typescript-eslint/interface-name-prefix': 'warn',
+    '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/member-delimiter-style': [
       'off',
       {
