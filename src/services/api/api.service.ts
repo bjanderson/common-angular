@@ -77,7 +77,7 @@ export class ApiService {
    * Handles any non-error responses from the server, and returns the body of the response.
    */
   private mapResponse(response: any): any {
-    let res;
+    let res: any;
     try {
       res = response.json();
     } catch (e) {
